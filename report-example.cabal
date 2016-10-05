@@ -1,0 +1,16 @@
+name:          report-example
+version:       0.1.0.0
+build-type:    Simple
+cabal-version: >= 1.2
+
+library
+  ghc-options:      -Wall -fobject-code
+  exposed-modules:  Basics
+  build-depends:    base >= 4.7 && < 5,
+                    QuickCheck
+
+executable myprogram
+  ghc-options:      -Wall -fobject-code
+  main-is:          Main.lhs
+  build-depends:    base >= 4.7 && < 5,
+                    QuickCheck

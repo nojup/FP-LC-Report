@@ -1,0 +1,21 @@
+
+\section{How to use this?}
+
+To generate the PDF, open the report.tex in your favorite LaTeX editor and
+hit compile, or manually do this:
+
+\begin{verbatim}
+  pdflatex report
+  bibtex report
+  pdflatex report
+  pdflatex report
+\end{verbatim}
+
+You should have stack installed (see \url{http://haskellstack.org/}) and
+open a terminal in the same folder.
+
+To compile everything: \texttt{stack build}.
+
+To open ghci and play with your code: \texttt{stack ghci}
+
+To run the executable generated from Section \ref{sec:Main}: \texttt{stack exec myprogram}
