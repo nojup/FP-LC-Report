@@ -7,6 +7,7 @@ library
   ghc-options:      -Wall -fobject-code
   exposed-modules:  Basics
   build-depends:    base >= 4.7 && < 5,
+                    random,
                     QuickCheck
 
 executable myprogram

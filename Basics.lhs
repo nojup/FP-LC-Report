@@ -7,11 +7,17 @@ This section describes a module which we will import later on.
 \begin{code}
 module Basics where
 
+import Control.Monad
+import System.Random
+
 thenumbers :: [Integer]
 thenumbers = [1..]
 
 somenumbers :: [Integer]
 somenumbers = take 10 thenumbers
+
+randomnumbers :: IO [Integer]
+randomnumbers = replicateM 10 $ randomRIO (0,10)
 \end{code}
 
 We can interrupt the code anywhere we want.
