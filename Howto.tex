@@ -14,10 +14,9 @@ hit compile, or manually do this:
 You should have stack installed (see \url{http://haskellstack.org/}) and
 open a terminal in the same folder.
 
-To compile everything: \texttt{stack build}.
-
-To open ghci and play with your code: \texttt{stack ghci}
-
-To run the executable generated from Section \ref{sec:Main}: \texttt{stack exec myprogram}
-
-To run the tests from Section \ref{sec:simpletests}: \texttt{stack clean; stack test --coverage}
+\begin{itemize}
+  \item To compile everything: \verb|stack build|.
+  \item To open ghci and play with your code: \verb|stack ghci|
+  \item To run the executable from Section \ref{sec:Main}: \verb|stack build && stack exec myprogram|
+  \item To run the tests from Section \ref{sec:simpletests}: \verb|stack clean && stack test --coverage|
+\end{itemize}
