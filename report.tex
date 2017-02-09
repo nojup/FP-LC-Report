@@ -3,7 +3,7 @@
 
 \title{My Report}
 \author{Me}
-\date{Autumn 2016}
+\date{\today}
 \hypersetup{pdfauthor={Me}, pdftitle={My Report}}
 
 \begin{document}
@@ -28,9 +28,11 @@ We use the listings package to typeset Haskell source code nicely.
 
 \input{Howto.tex}
 
-\input{Basics.lhs}
+\input{lib/Basics.lhs}
 
-\input{Main.lhs}
+\input{exec/Main.lhs}
+
+\input{test/simpletests.lhs}
 
 \input{Conclusion.tex}
 

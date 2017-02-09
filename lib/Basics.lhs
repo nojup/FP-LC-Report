@@ -31,8 +31,16 @@ Even in between cases, like here.
 It's always good to cite something \cite{Knuth11CombAlg}.
 
 \begin{code}
-funnyfunction n | even n     = funnyfunction (n-1)
+funnyfunction n | even n    = funnyfunction (n-1)
                 | otherwise = n*100
+\end{code}
+
+Something to reverse lists.
+
+\begin{code}
+myreverse :: [a] -> [a]
+myreverse [] = []
+myreverse (x:xs) = myreverse xs ++ [x]
 \end{code}
 
 That's it, for now.
