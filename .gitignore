@@ -6,6 +6,8 @@
 *.dyn_hi
 *.dyn_o
 *.eventlog
+*.fdb_latexmk
+*.fls
 *.hi
 *.hp
 *.log
