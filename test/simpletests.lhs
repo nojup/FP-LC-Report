@@ -10,36 +10,29 @@ module Main where
 
 import Basics
 
-import Text.Printf (printf)
+import Test.Hspec
 import Test.QuickCheck
-import Test.QuickCheck.Test (isSuccess)
-import System.Exit (exitSuccess, exitFailure)
 \end{code}
 
-The tuples in the following list consist of a name for the test and a
-quickCheckResult applied to a property. For example, we check that the output
-of funnyfunction is one of three possibilities. The second test checks that
-reversing twice gives the same string back.
-
-% TODO: add tests using thenumbers, somenumbers, randomnumbers
+The following uses the HSpec library to define different tests.
+Note that the first test is a specific test with fixed inputs.
+The second and third test use QuickCheck.
 
 \begin{code}
-tests :: [(String, IO Result)]
-tests =
-  [ ("funnytest1", quickCheckResult (\n -> funnyfunction n `elem` [42, n*100, (n-1)*100]) )
-  , ("reversetest", quickCheckResult (\str -> myreverse (myreverse str) == (str::String)) )
-  ]
-
 main :: IO ()
-main  = do
-  results <- mapM (\(s,a) -> printf "\n%-20s: " s >> a) tests
-  if all isSuccess results
-    then exitSuccess
-    else exitFailure
+main = hspec $ do
+  describe "Basics" $ do
+    it "somenumbers should be the same as [1..10]" $
+      somenumbers `shouldBe` [1..10]
+    it "funnyfunction: result is within [1..100]" $
+      property (\n -> funnyfunction n `elem` [1..100])
+    it "myreverse: using it twice gives back the same list" $
+      property $ \str -> myreverse (myreverse str) == (str::String)
 \end{code}
 
-To run this, use \verb|stack clean && stack test --coverage|. In particular
-this will generate a nice report using hpc. Look for ``The coverage report
-for ... is available at ... .html'' and open this html file in your browser.
-See \url{https://wiki.haskell.org/Haskell_program_coverage} for more examples
-and information how to read the report.
+To run the tests, use \verb|stack test|.
+
+To also find out which part of your program is actually used for these tests,
+run \verb|stack clean && stack test --coverage|. Then look for ``The coverage
+report for ... is available at ... .html'' and open this file in your browser.
+See also: \url{https://wiki.haskell.org/Haskell_program_coverage}.

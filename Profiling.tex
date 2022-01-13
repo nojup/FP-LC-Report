@@ -1,19 +1,17 @@
 
-\section{Profiling}
-\label{sec:Profiling}
+\section{Optional: Profiling}\label{sec:Profiling}
 
 The GHC compiler comes with a profiling system to keep track of which
-functions Are executed how often and how much time and memory they take.
+functions are executed how often and how much time and memory they take.
 To activate this RTS, we compile and execute our program as follows:
 
 \begin{verbatim}
 stack clean
-stack build --executable-profiling --library-profiling \
-  --ghc-options="-fprof-auto -rtsopts"
-stack exec -- myprogram +RTS -p -h
+stack build --profile
+stack exec --profile myprogram -- +RTS -p
 \end{verbatim}
 
-The results are saved in the file \texttt{myprogram.prof} which looks like this.
+Results are saved in the file \texttt{myprogram.prof} which looks as follows.
 Note for example, that funnyfunction was called on 14 entries.
 
 \begin{small}
@@ -32,7 +30,3 @@ MAIN              MAIN            227       0    0.0    0.8     0.0  100.0
 
 For many more RTS options, see the GHC documentation online at
 \url{https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/profiling.html}.
-
-To speed up our program, especially in GHCi, we can also add the
-parameter \texttt{-fobject-code} to the \texttt{ghc-options} field
-in the \texttt{.cabal} file.
