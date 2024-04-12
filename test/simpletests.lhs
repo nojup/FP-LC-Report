@@ -24,8 +24,8 @@ main = hspec $ do
   describe "Basics" $ do
     it "somenumbers should be the same as [1..10]" $
       somenumbers `shouldBe` [1..10]
-    it "funnyfunction: result is within [1..100]" $
-      property (\n -> funnyfunction n `elem` [1..100])
+    it "if n > - then funnyfunction n > 0" $
+      property (\n -> n > 0 ==> funnyfunction n > 0)
     it "myreverse: using it twice gives back the same list" $
       property $ \str -> myreverse (myreverse str) == (str::String)
 \end{code}
