@@ -11,6 +11,8 @@ dependencies:
   - base
   - random
   - QuickCheck
+  - mtl
+  - containers
 
 library:
   source-dirs: lib
