@@ -1,0 +1,21 @@
+
+\section{A brief introduction to lambda calculus}
+
+Lambda calculus (also written as $\lambda$-calculus) is a formal system for expressing computation, which is invented by Alonzo Church. Lambda calculus defined the notion of computable function via this system from a function-based perspective, serving as the foundation of today's functional programming. Later his PhD student Alan Turing invented Turing machines and defined the notion of computable function via these machines from a state-based perspective, serving as the foundation of today's imperative programming. 
+
+\subsection{Basic Rules}
+In the simplest form of lambda calculus, terms are built using only the following three rules:
+
+\begin{itemize}
+    \item $x$: A variable is a character or string representing a parameter.
+    \item $(\lambda x.M)$: A lambda abstraction is a function definition, taking as input the bound variable $x$ and returning the body $M$.
+    \item $(M \hspace{0.1cm} N)$: An application, applying a function $M$ to an argument $N$. Both $M$ and $N$ are lambda terms.
+\end{itemize}
+
+\subsection{Reduce operation}
+In the simplest form of lambda calculus, the reduction operations include:
+
+\begin{itemize}
+    \item $(\lambda x.M[x])\rightarrow (\lambda y.M[y])$ : $\alpha$-conversion, renaming the bound variables in the expression. Used to avoid name collisions.
+    \item $((\lambda x.M)\ N)\rightarrow (M[x:=N])$ : $\beta$-reduction, replacing the bound variables with the argument expression in the body of the abstraction.
+\end{itemize}

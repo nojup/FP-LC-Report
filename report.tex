@@ -1,20 +1,18 @@
 \documentclass[12pt,a4paper]{article}
 \input{latexmacros.tex}
 
-\title{My Report}
-\author{Me}
+\title{Typed Lambda Calculus}
+\author{Zhiyan Yao, Yiqing Zhang, Zhongyu Shi}
 \date{\today}
-\hypersetup{pdfauthor={Me}, pdftitle={My Report}}
+\hypersetup{pdfauthor={Zhiyan Yao, Yiqing Zhang, Zhongyu Shi}, pdftitle={Typed Lambda Calculus}}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-We give a toy example of a report in \emph{literate programming} style.
-The main advantage of this is that source code and documentation can
-be written and presented next to each other.
-We use the listings package to typeset Haskell source code nicely.
+We implemented a simplest version of lambda calculus in the first place, including variable declaration, lambda abstraction, application, $\alpha$ conversion and $\beta$ reduction. Based on it, we further extended it to typed lambda calculus that support Boolean, Integer and function boolean -> integer types using $\eta$ reduction. 
+
 \end{abstract}
 
 \vfill
@@ -26,7 +24,9 @@ We use the listings package to typeset Haskell source code nicely.
 % We include one file for each section. The ones containing code should
 % be called something.lhs and also mentioned in the .cabal file.
 
-\input{Howto.tex}
+% \input{Howto.tex}
+
+\input{Intro_to_LC.tex}
 
 \input{lib/Basics.lhs}
 
@@ -34,7 +34,7 @@ We use the listings package to typeset Haskell source code nicely.
 
 \input{test/simpletests.lhs}
 
-\input{Conclusion.tex}
+% \input{Conclusion.tex}
 
 \addcontentsline{toc}{section}{Bibliography}
 \bibliographystyle{alpha}
